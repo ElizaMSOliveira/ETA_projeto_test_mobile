@@ -26,5 +26,5 @@ class BaseActivity:
     # def wait_element(self, *locator):
     #     return WebDriverWait(self._driver, 10).until(EC.presence_of_element_located((locator)))
 
-    def click_button(self, *locator):
+    def click_btn(self, *locator):
         self._driver.find_element(*locator).click()
