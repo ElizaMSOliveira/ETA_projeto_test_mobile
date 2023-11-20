@@ -12,6 +12,9 @@ class Learn(BaseActivity):
         """
         super().__init__(driver=driver)
         self._glossary_header = "//android.widget.TextView[@text=\"Glossary\"]"
+        self._streak_header = "//android.widget.TextView[ @text=\"Activity\"]"
+        self._course = "//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[5]/android.widget.Button"
+        self._course_settings = "//android.widget.ImageView[@content-desc=\"Change path\"]"
         learn_icon = driver.find_element(by=AppiumBy.XPATH, value=f"{MAIN_ICON_BAR_PATH}[1]")
         learn_icon.click()
 
@@ -30,3 +33,30 @@ class Learn(BaseActivity):
     def get_glossary_header(self) -> str:
         header = self._driver.find_element(by=AppiumBy.XPATH, value=self._glossary_header)
         return header.text
+
+    def get_streak_header(self) -> str:
+        header = self._driver.find_element(by=AppiumBy.XPATH, value=self._streak_header)
+        return header.text
+
+    def click_course_button(self):
+        self.click_btn(AppiumBy.XPATH, self._course)
+
+    def click_course_settings_button(self):
+        self.click_btn(AppiumBy.XPATH, self._course_settings)
+
+    def get_select_path_header(self):
+        title_alt_course = self._driver.find_element(by=AppiumBy.XPATH,
+                                                     value='//android.widget.TextView[@text="Select Path"]')
+        return title_alt_course.text
+
+    def get_language_header(self):
+        path = "//android.widget.TextView[@text=\"Languages\"]"
+        language = self._driver.find_element(by=AppiumBy.XPATH,
+                                             value=path)
+        return language.text
+
+    def get_career_header(self):
+        path = "//android.widget.TextView[@text=\"Career Paths\"]"
+        career = self._driver.find_element(by=AppiumBy.XPATH,
+                                           value=path)
+        return career.text

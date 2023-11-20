@@ -1,7 +1,6 @@
 from enum import Enum
 import pytest
 from appium import webdriver
-from appium.webdriver.common.appiumby import AppiumBy
 from appium.options.android import UiAutomator2Options
 
 MAIN_ICON_BAR_PATH = "(//android.widget.ImageView[@resource-id='com.getmimo:id/navigation_bar_item_icon_view'])"
